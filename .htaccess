@@ -1,0 +1,26 @@
+# เพิ่มใน .htaccess
+RewriteEngine On
+RewriteBase /calorieBuddyAPI/
+
+# รองรับ HTTPS
+SetEnvIf X-Forwarded-Proto https HTTPS=on
+
+# Allow headers
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, PUT, DELETE, PATCH"
+Header always set Access-Control-Allow-Headers "Content-Type, X-API-Key"
+Header always set Access-Control-Max-Age "86400" 
+
+# Handle OPTIONS for CORS
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Main rewrite rule
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
+
+# Allow HTTP methods
+<LimitExcept GET POST PUT DELETE OPTIONS>
+    Deny from all
+</LimitExcept>

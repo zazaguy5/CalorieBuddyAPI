@@ -1,0 +1,36 @@
+// เพิ่มบัญชีใหม่
+Method POST 
+http://localhost/calorieBuddyAPI/userMethods/ 
+{
+    "headers": {
+        "x-api-key": "BfE8yHcqvc8L2H2mnw3A",
+    },
+    "body:" {
+        "username": "user1",
+        "email": "user@example.com",
+        "password": "password123",
+        "firstname": "จาตุรนต์",
+        "lastname": "แสงศิริ",
+        "phone": "0891234567",
+        "id_card_number": "1234567890123",
+        "is_active": "true"
+    },
+}
+
+// อัพเดตบัญชี
+http://localhost/calorieBuddyAPI/userMethods/ 
+{
+    "headers": {
+        "x-api-key": "BfE8yHcqvc8L2H2mnw3A",
+    },
+    "body:" {
+        "username": "user1",
+        "email": "user@example.com",
+        "password": "password123",
+        "firstname": "จาตุรนต์",
+        "lastname": "แสงศิริ",
+        "phone": "0891234567",
+        "id_card_number": "1234567890123",
+        "is_active": "true"
+    },
+}
