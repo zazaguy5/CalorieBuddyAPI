@@ -16,6 +16,8 @@ require_once 'response.php';
 
 require_once 'routes/user/userMethods.php';
 require_once 'routes/user/loginMethod.php';
+require_once 'routes/user/getProfile.php';
+require_once 'routes/food/getMeal.php';
 
 
 
@@ -93,6 +95,12 @@ $conn = db_connect();
 
 // Handle different endpoints
 switch ($resource) {
+    case 'getMeal':
+        getMealMethod($method, $conn);
+        break;
+    case 'getProfile':
+        getProfileMethod($method, $conn);
+        break;
     case 'userMethods':
         userMethods($method, $conn);
         break;

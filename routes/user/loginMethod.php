@@ -20,7 +20,7 @@ function loginMethod($method, $conn)
                     $user = $result->fetch_assoc();
 
                     // ตรวจสอบรหัสผ่าน
-                    if ($data['password'] == $user['password_hash']) {
+                    if (password_verify($data['password'], $user['password_hash'])) {
                         // ตรวจสอบสถานะบัญชี
                         if ($user['is_active'] !== 'true') {
                             sendResponse(403, ["error" => "บัญชีนี้ถูกระงับการใช้งาน"]);
